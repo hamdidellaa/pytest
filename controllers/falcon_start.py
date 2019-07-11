@@ -1,9 +1,8 @@
 import falcon
 from falcon import Request, Response
 
-
-
 class HelloWorld():
+
     require_authentication = False
 
     def on_get(self, req: Request, resp: Response):
@@ -20,11 +19,9 @@ class HelloWorld():
                         schema:
                             type: string
         """
-
         doc = {'message': 'Hello world'}
         resp.media = doc
         resp.status = falcon.HTTP_OK
-
 
 class HelloUser():
     require_authentication = False
@@ -54,3 +51,4 @@ class HelloUser():
         doc = {'message': f'Hello {name}'}
         resp.media = doc
         resp.status = falcon.HTTP_OK
+
