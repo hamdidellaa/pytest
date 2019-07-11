@@ -21,6 +21,6 @@ def test_hello_user():
     app.add_route('/hello/{name}', fa.HelloUser())
     client = testing.TestClient(app)
 # this is a test comment
-    response = client.simulate_request(path='/hello/sraytest', method='GET')
+    response = client.simulate_request(path='/hello/test', method='GET')
     assert response.status == falcon.HTTP_200
     assert response.json == {'message': 'Hello sraytest'}
