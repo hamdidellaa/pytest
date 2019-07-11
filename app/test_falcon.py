@@ -2,7 +2,7 @@
 import falcon
 import falcon.testing as testing
 
-import falcon_start as fa
+import app.falcon_start as fa
 
 
 def test_hello():
