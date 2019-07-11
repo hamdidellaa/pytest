@@ -2,14 +2,14 @@ FROM python:alpine
 
 EXPOSE 80
 
-# Install gunicorn
-RUN pip install gunicorn
+# Install waitress
+RUN pip install waitress
 
 # Install falcon
 RUN pip install falcon
 
 # Add demo app
-COPY ./app /app
+COPY . /app
 WORKDIR /app
 
-CMD ["gunicorn", "-b", "0.0.0.0:80", "main:app"]
+CMD ["waitress-serve", "--port", "80", "main:api"]
