@@ -12,4 +12,5 @@ RUN pip install falcon
 COPY . /app
 WORKDIR /app
 
-CMD ["waitress-serve", "--port", "80", "main:api"]
+
+CMD ["waitress-serve", "--port", "80", "main:api" ]
