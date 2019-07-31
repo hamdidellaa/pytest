@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Unit tests') {
             steps {
-                bat ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+               // bat ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
             }
             post {
                 always {
