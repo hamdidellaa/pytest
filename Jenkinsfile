@@ -12,6 +12,7 @@ pipeline {
               //  }
              }
             steps {
+                sh 'pwd' 
                 sh 'pip install -r requirements.txt'  
               }
         }
