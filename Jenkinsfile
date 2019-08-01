@@ -4,20 +4,23 @@ pipeline {
         stage('Install requirements') {
               when {
               //  not {
-                   // anyOf {
+                    anyOf {
                         branch 'develop';
+                        branch 'master'
                    //     branch 'staging'
-                  //  }
+                    }
               //  }
              }
             steps {
- 
                 bat 'pip install -r requirements.txt'  
               }
         }
- /*       stage('Unit tests') {
+       stage('Unit tests') {
+                 when {
+                        branch 'develop';
+             }
             steps {
-               // bat ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+                bat ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
             }
             post {
                 always {
@@ -26,7 +29,7 @@ pipeline {
                 }
             }
         }
-*/
+
     }
      post {
         failure {
