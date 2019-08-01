@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Install requirements') {
               when {
-                not {
-                    anyOf {
+              //  not {
+                   // anyOf {
                         branch 'develop';
-                        branch 'staging'
-                    }
-                }
+                   //     branch 'staging'
+                  //  }
+              //  }
              }
             steps {
  
