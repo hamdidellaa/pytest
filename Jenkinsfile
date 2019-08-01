@@ -2,18 +2,20 @@ pipeline {
     agent any
     stages {
         stage('Install requirements') {
+              when {
+                not {
+                    anyOf {
+                        branch 'develop';
+                        branch 'staging'
+                    }
+                }
+             }
             steps {
-                   script { 
-            if (env.BRANCH_NAME != 'master' && env.BRANCH_NAME != 'staging') {
-                echo 'This is not master or staging'
-            } else {
-                echo 'things and stuff'
-            }
-        }
+ 
                 bat 'pip install -r requirements.txt'  
               }
         }
-        stage('Unit tests') {
+ /*       stage('Unit tests') {
             steps {
                // bat ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
             }
@@ -24,7 +26,7 @@ pipeline {
                 }
             }
         }
-
+*/
     }
      post {
         failure {
