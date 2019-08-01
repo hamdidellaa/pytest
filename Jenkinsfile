@@ -1,5 +1,13 @@
 pipeline {
     agent any
+     when { branch "master" }
+     stages{
+         stage('dellaa'){
+             steps{
+                 sh 'echo dellaa is here'
+             }
+         }
+     }
     stages {
         stage('Install requirements') {
               when {
