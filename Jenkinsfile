@@ -12,7 +12,8 @@ pipeline {
               //  }
              }
             steps {
-                sh 'pip install -r requirements.txt'  
+                sh 'pwd' 
+              //  sh 'pip install -r requirements.txt'  
               }
         }
        stage('Unit tests') {
