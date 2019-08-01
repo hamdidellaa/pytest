@@ -1,22 +1,26 @@
 pipeline {
     agent any
-    triggers {
-        cron('* * * * *')
-    }
     stages {
-        stage('Code Pull') {
-            steps {
-                git  url: 'https://github.com/hamdidellaa/pytest.git'
-              }
-        }
         stage('Install requirements') {
+              when {
+              //  not {
+                    anyOf {
+                        branch 'develop';
+                        branch 'master'
+                   //     branch 'staging'
+                    }
+              //  }
+             }
             steps {
                 bat 'pip install -r requirements.txt'  
               }
         }
-        stage('Unit tests') {
+       stage('Unit tests') {
+                 when {
+                        branch 'develop';
+             }
             steps {
-               // bat ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+                bat ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
             }
             post {
                 always {
