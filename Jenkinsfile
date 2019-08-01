@@ -1,12 +1,11 @@
 pipeline {
     agent any
     triggers {
-        cron('H */4 * * 1-5')
+        cron('* * * * *')
     }
     stages {
         stage('Code Pull') {
             steps {
-
                 git  url: 'https://github.com/hamdidellaa/pytest.git'
               }
         }
