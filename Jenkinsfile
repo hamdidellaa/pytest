@@ -1,13 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('Code Pull') {
-            steps {
-                git  url: 'https://github.com/hamdidellaa/pytest.git'
-              }
-        }
         stage('Install requirements') {
             steps {
+                   script { 
+            if (env.BRANCH_NAME != 'master' && env.BRANCH_NAME != 'staging') {
+                echo 'This is not master or staging'
+            } else {
+                echo 'things and stuff'
+            }
+        }
                 bat 'pip install -r requirements.txt'  
               }
         }
