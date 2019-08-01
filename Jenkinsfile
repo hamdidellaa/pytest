@@ -12,7 +12,7 @@ pipeline {
               //  }
              }
             steps {
-                bat 'pip install -r requirements.txt'  
+                sh 'pip install -r requirements.txt'  
               }
         }
        stage('Unit tests') {
@@ -20,7 +20,7 @@ pipeline {
                         branch 'develop';
              }
             steps {
-                bat ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+                sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
             }
             post {
                 always {
