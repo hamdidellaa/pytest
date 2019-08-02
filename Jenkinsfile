@@ -3,7 +3,11 @@ pipeline {
     stages {
         stage('Install requirements') {
               steps{
-              sh ' pip install -r requirements.txt '
+                post {
+                    always {
+                        bat ' pip install -r requirements.txt '
+                    }
+                }
               /* script {
                     if (env.BRANCH_NAME.startsWith('release') ) {
                         echo 'this step created for release branch'
@@ -18,15 +22,15 @@ pipeline {
                 expression { env.BRANCH_NAME == 'develop'}
             }
             steps {
-              sh ' python -m pytest --verbose ' 
+              bat ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
             }
 
-            /*post {
+            post {
                 always {
                     // Archive unit tests for the future
-                    //junit allowEmptyResults: true, testResults: 'test-reports/results.xml'
+                    junit allowEmptyResults: true, testResults: 'test-reports/results.xml'
                 }
-            }*/
+            }
         }
 
     }
