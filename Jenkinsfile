@@ -2,36 +2,23 @@ pipeline {
     agent any
     stages {
         stage('Install requirements') {
-          /*    when {
-              //  not {
-                    anyOf {
-                        branch 'develop';
-                        branch 'master'
-                   //     branch 'staging'
-                    }
-              //  }
-             }
-            steps {
-                sh 'pwd' 
-              //  sh 'pip install -r requirements.txt'  
-              }*/
               steps{
-                     script {
-                            if (env.BRANCH_NAME == 'master') {
-            echo 'I only execute on the master branch yes'
-        } else {
-            echo 'I execute elsewhere'
-        }
-              }
+                script {
+                    if (env.BRANCH_NAME.startsWith('release') ) {
+                        echo 'this step created for release branch'
+                    } else if(env.BRANCH_NAME.startsWith('feature')) {
+                       echo 'this step created for feature branch'
+                    }
+                 }
               }
         }
        stage('Unit tests') {
-                 when {
-                        branch 'develop';
-             }
+            when {
+                branch 'develop';
+            }
             steps {
-              //  sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
-               sh 'pwd' 
+            //  sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+            sh 'pwd' 
             }
             post {
                 always {
