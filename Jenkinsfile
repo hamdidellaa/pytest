@@ -5,8 +5,8 @@ pipeline {
               steps{
                 post {
                     always {
-                        sh 'pwd'
-                        sh ' pip install -r requirements.txt '
+                        bash 'pwd'
+                      //  sh ' pip install -r requirements.txt '
                     }
                 }
               /* script {
