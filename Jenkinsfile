@@ -1,13 +1,5 @@
 pipeline {
     agent any
-     when { branch "master" }
-     stages{
-         stage('dellaa'){
-             steps{
-                 sh 'echo dellaa is here'
-             }
-         }
-     }
     stages {
         stage('Install requirements') {
               when {
@@ -29,7 +21,8 @@ pipeline {
                         branch 'develop';
              }
             steps {
-                sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+              //  sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+               sh 'pwd' 
             }
             post {
                 always {
