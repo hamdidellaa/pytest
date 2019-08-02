@@ -3,8 +3,6 @@ from falcon import Request, Response
 
 class HelloWorld():
 
-    require_authentication = False
-
     def on_get(self, req: Request, resp: Response):
         """Hello world
         ---
@@ -24,7 +22,6 @@ class HelloWorld():
         resp.status = falcon.HTTP_OK
 
 class HelloUser():
-    require_authentication = False
 
     def on_get(self, req: Request, resp: Response, name: str):
         """Hello world

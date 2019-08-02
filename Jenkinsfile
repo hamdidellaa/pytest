@@ -18,13 +18,13 @@ pipeline {
                 expression { env.BRANCH_NAME == 'develop'}
             }
             steps {
-              sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+              sh ' python -m pytest --verbose ' 
             }
 
             post {
                 always {
                     // Archive unit tests for the future
-                    junit allowEmptyResults: true, testResults: 'test-reports/results.xml'
+                    //junit allowEmptyResults: true, testResults: 'test-reports/results.xml'
                 }
             }
         }
