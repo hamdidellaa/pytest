@@ -21,7 +21,8 @@ pipeline {
                         branch 'develop';
              }
             steps {
-                sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+              //  sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+               sh 'pwd' 
             }
             post {
                 always {
