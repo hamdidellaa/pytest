@@ -5,7 +5,7 @@ pipeline {
               steps{
                 post {
                     always {
-                        bat ' pip install -r requirements.txt '
+                        sh ' pip install -r requirements.txt '
                     }
                 }
               /* script {
@@ -22,7 +22,7 @@ pipeline {
                 expression { env.BRANCH_NAME == 'develop'}
             }
             steps {
-              bat ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+              sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
             }
 
             post {
