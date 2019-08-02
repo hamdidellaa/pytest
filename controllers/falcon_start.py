@@ -3,7 +3,7 @@ from falcon import Request, Response
 
 class HelloWorld():
 
-    def on_get(self, req: Request, resp: Response):
+    def on_get(self, req, resp):
         """Hello world
         ---
         description: Get a greeting to the world
@@ -23,7 +23,7 @@ class HelloWorld():
 
 class HelloUser():
 
-    def on_get(self, req: Request, resp: Response, name: str):
+    def on_get(self, req, resp, name):
         """Hello world
         ---
         description: Get a greeting to a user
