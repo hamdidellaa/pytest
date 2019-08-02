@@ -3,11 +3,8 @@ pipeline {
     stages {
         stage('Install requirements') {
               steps{
-                post {
-                    always {
-                        sh ' pip install -r requirements.txt '
-                    }
-                }
+                  
+                    sh ' pip install -r requirements.txt '
               /* script {
                     if (env.BRANCH_NAME.startsWith('release') ) {
                         echo 'this step created for release branch'
