@@ -45,7 +45,7 @@ class HelloUser():
                             type: string
         """
 
-        doc = {'message': f'Hello {name}'}
+        doc = {'message': 'Hello '+name}
         resp.media = doc
         resp.status = falcon.HTTP_OK
 
