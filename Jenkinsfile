@@ -14,7 +14,7 @@ pipeline {
         }
        stage('Unit tests') {
             when {
-                expression { env.BRANCH_NAME.startsWith('release')}
+                expression { env.BRANCH_NAME.startsWith('feature')}
             }
             steps {
             //  sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
