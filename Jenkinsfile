@@ -3,19 +3,15 @@ pipeline {
     stages {
         stage('Install requirements') {
               steps{
-              /*  post {
-                    always {
-                        bash 'pwd'
-                      //  sh ' pip install -r requirements.txt '
-                    }
-                }*/
-               script {
+                  
+                    sh ' pip install -r requirements.txt '
+              /* script {
                     if (env.BRANCH_NAME.startsWith('release') ) {
                         echo 'this step created for release branch'
                     } else if(env.BRANCH_NAME.startsWith('feature')) {
                        echo 'this step created for feature branch'
                     }
-                 }
+                 }*/
               }
         }
        stage('Unit tests') {
