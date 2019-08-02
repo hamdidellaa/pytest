@@ -19,6 +19,12 @@ pipeline {
             steps {
               sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
             }
+             when {
+                expression { env.BRANCH_NAME == 'develop'}
+            }
+            steps {
+              sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+            }
             post {
                 always {
                     // Archive unit tests for the future
