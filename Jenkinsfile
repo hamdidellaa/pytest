@@ -21,12 +21,12 @@ pipeline {
               sh ' python -m pytest --verbose ' 
             }
 
-            post {
+            /*post {
                 always {
                     // Archive unit tests for the future
                     //junit allowEmptyResults: true, testResults: 'test-reports/results.xml'
                 }
-            }
+            }*/
         }
 
     }
