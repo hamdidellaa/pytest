@@ -14,7 +14,7 @@ pipeline {
         }
        stage('Unit tests') {
             when {
-                branch 'develop';
+               env.BRANCH_NAME.startsWith('release')
             }
             steps {
             //  sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
