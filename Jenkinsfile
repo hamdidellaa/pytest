@@ -17,8 +17,7 @@ pipeline {
                 expression { env.BRANCH_NAME.startsWith('feature')}
             }
             steps {
-            //  sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
-            sh 'pwd' 
+              sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
             }
             post {
                 always {
