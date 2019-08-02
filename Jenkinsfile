@@ -16,11 +16,13 @@ pipeline {
               //  sh 'pip install -r requirements.txt'  
               }*/
               steps{
+                     script {
                             if (env.BRANCH_NAME == 'master') {
-            echo 'I only execute on the master branch'
+            echo 'I only execute on the master branch yes'
         } else {
             echo 'I execute elsewhere'
         }
+              }
               }
         }
        stage('Unit tests') {
