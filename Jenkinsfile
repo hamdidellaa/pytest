@@ -4,7 +4,7 @@ pipeline {
         stage('Install requirements') {
               steps{
                   
-                    sh ' pip install -r requirements.txt '
+                    sh ' pip3 install -r requirements.txt '
               /* script {
                     if (env.BRANCH_NAME.startsWith('release') ) {
                         echo 'this step created for release branch'
@@ -19,7 +19,7 @@ pipeline {
                 expression { env.BRANCH_NAME == 'develop'}
             }
             steps {
-              sh ' python -m pytest --verbose --junit-xml test-reports/results.xml' 
+              sh ' python3 -m pytest --verbose --junit-xml test-reports/results.xml' 
             }
 
             post {
