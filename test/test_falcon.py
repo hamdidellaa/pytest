@@ -21,4 +21,4 @@ def test_hello_user():
 # this is a test comment
     response = client.simulate_request(path='/hello/world', method='GET')
     assert response.status == falcon.HTTP_200
-    assert response.json == {'message': 'Hello world'}
+    assert response.json == {'message': 'Hello worldd'}
